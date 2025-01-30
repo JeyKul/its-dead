@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const blobCount = 99; // Adjust to ensure full screen coverage
+    const blobCount = 40; // Adjust to ensure full screen coverage
     const background = document.querySelector(".background");
 
     for (let i = 0; i < blobCount; i++) {
