@@ -2,6 +2,46 @@ document.addEventListener("DOMContentLoaded", function () {
     const blobCount = 16; // Adjust to ensure full screen coverage
     const background = document.querySelector(".background");
 
+    // Create FPS counter element and add it to the body
+    const fpsCounter = document.createElement("div");
+    fpsCounter.style.position = "fixed";
+    fpsCounter.style.top = "10px";
+    fpsCounter.style.left = "10px";
+    fpsCounter.style.fontSize = "20px";
+    fpsCounter.style.color = "#fff";
+    fpsCounter.style.zIndex = "9999";
+    fpsCounter.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    fpsCounter.style.padding = "5px";
+    document.body.appendChild(fpsCounter);
+
+    // Track FPS
+    let lastFrameTime = performance.now();
+    let frameCount = 0;
+    let fps = 0;
+
+    function updateFPS() {
+        const now = performance.now();
+        const deltaTime = now - lastFrameTime;
+        frameCount++;
+
+        // If 1 second has passed, calculate FPS and reset frame count
+        if (deltaTime >= 1000) {
+            fps = frameCount;
+            frameCount = 0;
+            lastFrameTime = now;
+        }
+
+        // Update the FPS display
+        fpsCounter.textContent = `FPS: ${fps}`;
+
+        // Request the next frame
+        requestAnimationFrame(updateFPS);
+    }
+
+    // Start FPS counter
+    updateFPS();
+
+    // Create blobs and animations
     for (let i = 0; i < blobCount; i++) {
         const blob = document.createElement("span");
         const size = Math.random() * 69; // Random size between 80-160vmin
