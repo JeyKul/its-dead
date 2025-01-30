@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const blobCount = 16; // Adjust to ensure full screen coverage
+    const blobCount = 69; // Adjust to ensure full screen coverage
     const background = document.querySelector(".background");
 
     // Create FPS counter element and add it to the body
     const fpsCounter = document.createElement("div");
     fpsCounter.style.position = "fixed";
-    fpsCounter.style.top = "10px";
-    fpsCounter.style.left = "10px";
+    fpsCounter.style.top = "6.9px";
+    fpsCounter.style.left = "6.9px";
     fpsCounter.style.fontSize = "20px";
     fpsCounter.style.color = "#fff";
-    fpsCounter.style.zIndex = "9999";
-    fpsCounter.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-    fpsCounter.style.padding = "5px";
+    fpsCounter.style.zIndex = "6969";
+    fpsCounter.style.backgroundColor = "rgba(0, 0, 0, 0.69)";
+    fpsCounter.style.padding = "6.9px";
     document.body.appendChild(fpsCounter);
 
     // Track FPS
