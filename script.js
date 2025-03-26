@@ -62,14 +62,16 @@ document.addEventListener("DOMContentLoaded", function () {
         blob.style.filter = "blur(69vmin)";
         blob.style.opacity = "0.69";
         blob.style.animation = `move${i} ${duration}s infinite alternate linear`;
+        blob.style.willChange = 'transform, opacity'; // Optimize animating properties
+        blob.style.transform = 'translateZ(0)'; // Hardware accelerate blobs
 
         // Create unique animation for each blob
         const keyframes = `
-            @keyframes move${i} {
-                0% { transform: translate(0, 0) scale(1); }
-                100% { transform: translate(${Math.random() * 69 - 6.9}vw, ${Math.random() * 69 - 69}vh) scale(${Math.random() * 6.9 + 0.69}); }
-            }
-        `;
+        @keyframes move${i} {
+            0% { transform: translate3d(0, 0, 0) scale(1); }
+            100% { transform: translate3d(${Math.random() * 69 - 6.9}vw, ${Math.random() * 69 - 69}vh, 0) scale(${Math.random() * 6.9 + 0.69}); }
+        }
+    `;
 
         const styleSheet = document.styleSheets[0];
         styleSheet.insertRule(keyframes, styleSheet.cssRules.length);

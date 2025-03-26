@@ -139,3 +139,23 @@
     left: 12%;
     box-shadow: -200vmin 0 10vmin currentColor;
 }
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    pointer-events: none;
+    z-index: 2;
+    transform: translateZ(0); /* Force hardware acceleration */
+    will-change: backdrop-filter;
+}
+
+.background {
+    z-index: 1;
+    transform: translateZ(0); /* Improve animation performance */
+}
